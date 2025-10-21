@@ -109,6 +109,7 @@ const translations = {
     confirmOrder: "Confirmar pedido",
     emptyCart: "Tu carrito está vacío",
     ingredientRemoved: "Quitado",
+    without: "Sin",
   },
   en: {
     selectLanguage: "Select your language",
@@ -137,6 +138,7 @@ const translations = {
     confirmOrder: "Confirm order",
     emptyCart: "Your cart is empty",
     ingredientRemoved: "Removed",
+    without: "Without",
   },
 }
 
@@ -195,7 +197,7 @@ export default function RestaurantKiosk() {
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-red-600">{t.selectLanguage}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 text-white">
             <Button
               onClick={() => {
                 setLanguage("es")
@@ -228,7 +230,7 @@ export default function RestaurantKiosk() {
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold text-red-600">{t.orderType}</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 text-white">
             <Button
               onClick={() => {
                 setOrderType("takeaway")
@@ -264,7 +266,7 @@ export default function RestaurantKiosk() {
               <Badge variant="outline" className="text-lg px-4 py-2">
                 {orderType === "takeaway" ? t.takeaway : t.dineIn}
               </Badge>
-              <Button onClick={() => setCurrentScreen("cart")} className="bg-red-600 hover:bg-red-700">
+              <Button onClick={() => setCurrentScreen("cart")} className="bg-red-600 hover:bg-red-700 text-white">
                 <ShoppingCart className="w-5 h-5 mr-2" />
                 {t.cart} ({cart.reduce((sum, item) => sum + item.quantity, 0)})
               </Button>
@@ -290,7 +292,7 @@ export default function RestaurantKiosk() {
                         setRemovedIngredients([])
                         setCurrentScreen("product-detail")
                       }}
-                      className="bg-red-600 hover:bg-red-700"
+                      className="bg-red-600 hover:bg-red-700 text-white"
                     >
                       {t.addToCart}
                     </Button>
@@ -333,7 +335,7 @@ export default function RestaurantKiosk() {
                   <h3 className="text-xl font-semibold mb-4">{t.ingredients}</h3>
                   <div className="space-y-2">
                     {selectedProduct.ingredients.map((ingredient, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg">
+                      <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg text-black shadow">
                         <span>{ingredient[language]}</span>
                         <Button
                           variant={removedIngredients.includes(index) ? "destructive" : "outline"}
@@ -359,7 +361,7 @@ export default function RestaurantKiosk() {
                   addToCart(selectedProduct, removedIngredients)
                   setCurrentScreen("menu")
                 }}
-                className="w-full h-12 text-lg bg-red-600 hover:bg-red-700"
+                className="w-full h-12 text-lg bg-red-600 hover:bg-red-700 text-white"
               >
                 {t.addToCart}
               </Button>
@@ -405,7 +407,7 @@ export default function RestaurantKiosk() {
                           <h3 className="font-semibold">{item.name[language]}</h3>
                           {item.removedIngredients.length > 0 && (
                             <p className="text-sm text-gray-600">
-                              Sin: {item.removedIngredients.map((i) => item.ingredients[i][language]).join(", ")}
+                              {t.without}: {item.removedIngredients.map((i) => item.ingredients[i][language]).join(", ")}
                             </p>
                           )}
                           <p className="text-red-600 font-bold">${item.price}</p>
