@@ -1,7 +1,7 @@
 # 🌀 Totem
 
-Proyecto desarrollado en **Next.js (v15)** con **TypeScript**, **TailwindCSS** y **shadcn/ui**.  
-Este repositorio contiene la interfaz del proyecto **Totem**, pensada para ejecución local o despliegue en entornos como Vercel.
+Proyecto desarrollado en **React** utilizando el framework **Next.js (v15)** junto con **TypeScript**, **TailwindCSS** y **shadcn/ui**.  
+Este repositorio contiene la interfaz del proyecto **Totem**, pensada para ejecución local o despliegue en entornos como **Vercel** o **Node.js**.
 
 ---
 
