@@ -110,6 +110,7 @@ const translations = {
     emptyCart: "Tu carrito está vacío",
     ingredientRemoved: "Quitado",
     without: "Sin",
+    backToCart: "Volver al carrito",
   },
   en: {
     selectLanguage: "Select your language",
@@ -139,6 +140,7 @@ const translations = {
     emptyCart: "Your cart is empty",
     ingredientRemoved: "Removed",
     without: "Without",
+    backToCart: "Back to cart",
   },
 }
 
@@ -311,7 +313,7 @@ export default function RestaurantKiosk() {
     return (
       <div className="min-h-screen bg-gray-50 p-4">
         <div className="max-w-4xl mx-auto">
-          <Button onClick={() => setCurrentScreen("menu")} className="mb-6 bg-gray-600 hover:bg-gray-700">
+          <Button onClick={() => setCurrentScreen("menu")} className="mb-6 bg-gray-600 hover:bg-gray-700 text-white">
             <ArrowLeft className="w-5 h-5 mr-2" />
             {t.backToMenu}
           </Button>
@@ -379,7 +381,7 @@ export default function RestaurantKiosk() {
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-3xl font-bold text-gray-800">{t.orderSummary}</h1>
-            <Button onClick={() => setCurrentScreen("menu")} className="bg-gray-600 hover:bg-gray-700">
+            <Button onClick={() => setCurrentScreen("menu")} className="bg-gray-600 hover:bg-gray-700 text-white">
               <ArrowLeft className="w-5 h-5 mr-2" />
               {t.backToMenu}
             </Button>
@@ -457,9 +459,9 @@ export default function RestaurantKiosk() {
         <div className="max-w-2xl mx-auto">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-3xl font-bold text-gray-800">{t.orderTicket}</h1>
-            <Button onClick={() => setCurrentScreen("cart")} className="bg-gray-600 hover:bg-gray-700">
+            <Button onClick={() => setCurrentScreen("cart")} className="bg-gray-600 hover:bg-gray-700 text-white">
               <ArrowLeft className="w-5 h-5 mr-2" />
-              {t.cart}
+              {t.backToCart}
             </Button>
           </div>
 
